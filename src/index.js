@@ -1,12 +1,21 @@
-function generateRecipe(event) {
-  event.preventDefault();
+function displayResultrecipe(response) {
   new Typewriter("#resultRecipe", {
-    strings:
-      "🍝 Your recipe will be generated here,🧂 Your ingredients will be generated here",
+    strings: response.data.answer,
     autoStart: true,
     cursor: null,
-    delay: 10,
+    delay: 1,
   });
+}
+function generateRecipe(event) {
+  event.preventDefault();
+  let instructionsInput = document.querySelector("#instructions");
+  let apiKey = "3eo0fetfbb61a575e45b64ff05342834";
+  let context =
+    "You are AI Kitchen assistant, your objective is to generate recipe from ingredients or from recipe ideas. Make sure the answer is concise in basic HTML and contents title,Ingredients and Steps";
+  let prompt = `User instructions: Generate a recipe ${instructionsInput.value}`;
+  let apiUrl = `https://api.shecodes.io/ai/v1/generate?prompt=${prompt}&context=${context}&key=${apiKey}`;
+
+  axios.get(apiUrl).then(displayResultrecipe);
 }
 
 let recipeGeneratorformElement = document.querySelector(
