@@ -2,9 +2,11 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Recipe Generator</title>
     <link rel="stylesheet" href="src/styles.css" />
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
   </head>
   <body>
     <div class="container">
@@ -20,7 +22,7 @@
         </p>
       </header>
       <main>
-        <form>
+        <form id="recipe-generate-form">
           <input
             class="recipe-input"
             type="text"
@@ -33,7 +35,7 @@
             <input type="submit" value="Generate" class="generate-button" />
           </div>
         </form>
-        <div class="result-recipe">
+        <div class="result-recipe" id="resultRecipe">
           🍝Your recipe will be generated here
           <br />
           🧂Your ingredients will be generated here

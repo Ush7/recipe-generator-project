@@ -49,7 +49,7 @@ form {
   color: white;
   border: none;
 }
-.result-recipe {
+#result-recipe {
   display: inline-block;
   margin: 0, auto;
   text-align: center;
